@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.app{
+	background-color: #f3f2ef;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.app__body {
+	display: flex;
+	justify-content: center;
+}
