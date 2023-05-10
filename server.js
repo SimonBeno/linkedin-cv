@@ -6,7 +6,7 @@ app.use(express.json())
 app.use(cors())
 
 
-const API_KEY = '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'
+const openai_API_KEY = ''
 
 app.post('/completions', async (req, res) => {
 
@@ -16,7 +16,7 @@ app.post('/completions', async (req, res) => {
 	const options = {
 		method: "POST",
 		headers: {
-			"Authorization": `Bearer ${API_KEY}`,
+			"Authorization": `Bearer ${openai_API_KEY}`,
 			"Content-Type": "application/json"
 		},
 		body: JSON.stringify({
@@ -51,8 +51,8 @@ app.post('/mail_request', async (req, res) => {
 	// tu je guide ako pridat open tracking, cc, bcc, attachments, reply to etc: https://docs.sendgrid.com/api-reference/mail-send/mail-send#handlebars
 
 	const sgMail = require('@sendgrid/mail')
-	const API_KEY = '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';
-	sgMail.setApiKey(API_KEY);
+	const sendgrid_API_KEY = '';
+	sgMail.setApiKey(sendgrid_API_KEY);
 	const msg1 = {
 	  to: email_address, // Change to your recipient
 	  from: 'simon@sbeno.us', // Change to your verified sender
