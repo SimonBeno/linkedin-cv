@@ -1,0 +1,13 @@
+.avatar_chat {
+    object-fit: contain;
+    height: 30px !important;
+    width: 30px !important;
+}
+
+.chat_outline {
+    outline-color: rgb(150, 150, 150);
+}
+
+.message_textarea {
+    height: 210px !important;
+}

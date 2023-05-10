@@ -1,24 +1,30 @@
-import React from "react";
+import React, {useState, useRef} from "react";
+
+// Icons
 import SearchIcon from '@mui/icons-material/Search';
-import linkedinImage from './/linkedin.png';
+import SchoolIcon from '@mui/icons-material/School';
+import HandymanIcon from '@mui/icons-material/Handyman';
+import PsychologyIcon from '@mui/icons-material/Psychology';
+import LanguageIcon from '@mui/icons-material/Language';
+import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
+import RecordVoiceOverIcon from '@mui/icons-material/RecordVoiceOver';
+
+// Local imports
 import './Header.css';
 import HeaderOption from './HeaderOption.js';
-import HomeIcon from '@mui/icons-material/Home';
-import PeopleIcon from '@mui/icons-material/People';
-import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
-import ChatIcon from '@mui/icons-material/Chat';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import avatar from './/Simon.jpg';
+import linkedinImage from "./utils/linkedin.png";
+import avatar from './utils/Simon.jpg';
 
 
-function Header() {
+function Header({handleClick, SchoolRef, WorkRef, SkillsRef, LangRef, VolRef, RefRef}) {
+	
 
 	return (
 	<div className="header">
 		<div className="header__left">
 			<img src={linkedinImage} alt="LinkedIn" />
 
-			<div className="header__search">
+			<div className="header__search text-center">
 				<SearchIcon />
 				<input type="text" placeholder="Search"/>
 			</div>
@@ -28,12 +34,13 @@ function Header() {
 
 
 		<div className="header__right">
-			<HeaderOption Icon={HomeIcon} title="Home"/>
-			<HeaderOption Icon={PeopleIcon} title="My Network"/>
-			<HeaderOption Icon={BusinessCenterIcon} title="Jobs"/>
-			<HeaderOption Icon={ChatIcon} title="Messages"/>
-			<HeaderOption Icon={NotificationsIcon} title="Notifications"/>
-			<HeaderOption avatar={avatar} title="Profile"/>
+			<HeaderOption Icon={SchoolIcon} Ref={SchoolRef} handleClick={handleClick} title="Education" /> {/*Education*/}
+			<HeaderOption Icon={HandymanIcon} Ref={WorkRef} handleClick={handleClick} title="Work"/> {/*Work*/}
+			<HeaderOption Icon={PsychologyIcon} Ref={SkillsRef} handleClick={handleClick} title="Skills"/> {/*Skills*/}
+			<HeaderOption Icon={LanguageIcon} Ref={LangRef} handleClick={handleClick}  title="Langugages"/> {/*Languages*/}
+			<HeaderOption Icon={VolunteerActivismIcon} Ref={VolRef} handleClick={handleClick} title="Voluteer"/> {/*Volunteer*/}
+			<HeaderOption Icon={RecordVoiceOverIcon} Ref={RefRef} handleClick={handleClick} title="References"/> {/*References*/} 
+			<a href="https://www.linkedin.com/in/simon-beno-056b631ab/"><HeaderOption avatar={avatar} title="Profile"/></a> {/*Profile*/}
 		</div>
 	</div>
 

@@ -3,6 +3,7 @@
     padding: 15px;
     margin-bottom: 10px;
     border-radius: 10px;
+    border: 1px solid lightgray;
 }
 
 
@@ -33,4 +34,52 @@
     justify-content: space-between;
 }
 
+.comment2 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 7px;
+    padding-right: 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 40px;
+    min-height: 40px;
+    font-weight: 600;
+    background-color: rgb(200, 200, 200);
+    margin-top: 10px;
+}
 
+.comment2 > .input {
+    outline: none;
+    border: none;
+    background: none;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    resize: none;
+    flex-grow: 1;
+}
+
+.SendOutlinedIcon {
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+}
+
+
+.SendOutlinedIcon:hover {
+    cursor: pointer;
+}
+
+
+.comment2 > button {
+    display: none;
+}
+
+.post__avatar {
+    margin-bottom: 10px;
+    object-fit: contain;
+    height: 40px !important;
+    width: 40px !important;
+}

@@ -1,31 +1,74 @@
 .feed{
     flex:0.2;
     margin: 0 20px;
+    position: sticky;
 }
 
 .feed__inputContainer{
     background-color: white;
     padding: 10px;
-    padding-bottom: 20px;
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    border: 1px solid lightgray;
 }
 
+.feed__hashes {
+    text-align: left;
+    padding: 10px;
+    border: 1px solid lightgray;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 25px;
+}
+
+.feed__hashed > p {
+    font-size: 13px;
+    padding-bottom: 10px;
+}
+
+.feed__recentitem {
+    display: flex;
+    font-size: 13px;
+    color: gray;
+    font-weight: bolder;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+.feed__recentitem:hover {
+    background-color: whitesmoke;
+    border-radius: 10px;
+    cursor: default;
+    color: black;
+}
+
+.feed__hash{
+    margin-right: 10px;
+    margin-left: 5px;
+}
+
+/*
 .feed__input {
     border: 1px solid lightgray;
     border-radius: 30px;
     display: flex;
     padding: 10px;
-    color: gray;
+    color: rgb(50, 50, 50);
     padding-left: 15px;
 }
+*/
 
+
+/*
 .feed__input > form {
     display: flex;
     width: 100%;
 
 }
+*/
 
+
+/*
 .feed__input > form > input {
     border: none;
     flex: 1;
@@ -33,12 +76,48 @@
     outline-width: 0;
     font-weight: 600;
 }
+*/
 
+
+/*
 .feed__input > form > button {
     display: none;
 }
+*/
+
 
 .feed__inputOptions{
     display: flex;
     justify-content: space-evenly;
 }
+
+
+/*
+.comment2 {
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 40px;
+    min-height: 40px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+*/
+
+/*
+.comment2 > .input {
+    outline: none;
+    border: none;
+    background: none;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    resize: none;
+    flex-grow: 1;
+}
+*/
+

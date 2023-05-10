@@ -2,10 +2,10 @@ import React from 'react'
 import "./InputOption.css"
 
 
-function InputOption({Icon, title, color}) {
+function InputOption({Icon, title, color, onIconClick}) {
   return (
-    <div className="inputOption">
-        <Icon style={{color: color}}/>
+    <div className="inputOption" onClick={onIconClick}>
+        <Icon style={{color: color}} />
         <h4>{title}</h4>
     </div>
 

@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 // stylesheets
 import "./Feed.css";
 
 //Firebase
 import { db } from "./firebase.js";
-import { getDocs, collection, addDoc, serverTimestamp, query, orderBy } from 'firebase/firestore/lite';
+import { getDocs, collection, addDoc, updateDoc, serverTimestamp, query, orderBy } from 'firebase/firestore/lite';
 
 //openAI
 import { getOpenAIResponse } from './app/openai.js';
@@ -14,24 +14,54 @@ import { Configuration, OpenAIApi } from 'openai';
 // own components
 import InputOption from './InputOption.js';
 import Post from './Post.js';
-import Loading from './Loading.js';
 
 // outside components
 import CreateIcon from '@mui/icons-material/Create';
-//import ImageIcon from '@mui/icons-material/Image';
 import CalendarViewDayIcon from '@mui/icons-material/CalendarViewDay';
 import EventNoteIcon from '@mui/icons-material/EventNote';
 import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
 
 
-function Feed() {
+function Feed({loaded, setLoaded}) {
 
+  const inputRef = useRef();
   const [input, setInput] = useState('')
   const [posts, setPosts] = useState([])
   const [changed, setChanged] = useState(false); // to fire off new post render
   const [loading, setLoading] = useState(false);
 
-  
+ 
+
+// textarea resizing
+      useEffect(() => {
+
+        if (inputRef) {
+          // We need to reset the height momentarily to get the correct scrollHeight for the textarea
+          inputRef.current.style.height = "0px";
+          const scrollHeight = inputRef.current.scrollHeight;
+
+          // We then set the height directly, outside of the render loop
+          inputRef.current.style.height = scrollHeight + "px";
+        }
+
+      }, [inputRef, input]);
+
+
+  // char limit to input
+    const char_limit = 281;
+    const handleInput = (e) => {
+        var value = e.target.value;
+
+        if (value.length > char_limit){
+            var value = value.slice(0, char_limit);
+        }
+
+        setInput(value);
+    };
+
+
+
+
   useEffect(() => { //hook that allows us to fire off code when a component loads, or rerenders
 
       async function getPosts(db) {
@@ -54,12 +84,30 @@ function Feed() {
 
       fetchPosts();
 
+      if (!loaded){
+        setTimeout(() => {
+          setLoaded(true);
+        }, 1000)
+      }
     
   }, [changed]) // if we pass in blank dependency (empty array), it will fire off only once, when the main component loads (comp Feed in this case), but never again when it rerenders
 
 
+ const handleKeyPress = (event) => {
+    if (event.key === 'Enter' && !event.shiftKey) {
+      event.preventDefault();
+      sendPost();
+    }
+  };
+
+
 const sendPost = async e => {
-    e.preventDefault(); 
+
+
+    if (!input) {
+      return; 
+    }
+
 
     setLoading(true);
 
@@ -100,11 +148,12 @@ const sendPost = async e => {
       async function writePost()
       {
         await addDoc(postsColl, {
-          name: 'Simon',
-          description: 'picusko',
+          comments: [],
+          name: 'AnonymousUser',
+          description: '',
           message: input,
-          photoUrl: '',
           timestamp: serverTimestamp(),
+          likes: 0,
         })
       }
       
@@ -127,29 +176,65 @@ const sendPost = async e => {
 
   };
 
+
+const recentItem = (topic) => (
+    <div className="feed__recentitem">
+      <span className="feed__hash">#</span>
+      <p>{topic}</p>
+    </div>
+  )
+
+
   return (
     <div className='feed'>
+      <div className="feed__hashes ">
+        <p className="p-2 font-semibold text-base">Talks about</p>
+        {recentItem("Engineering")}
+        {recentItem("JSX")}
+        {recentItem("75 Hard")}
+        {recentItem("Fitness")}
+        {recentItem("NoSleep society")}
+        
+      </div>
         <div className="feed__inputContainer">
-            <div className="feed__input">
-                <CreateIcon />
-                <form>
-                    <input type="text" value={input} onChange={e => setInput(e.target.value)} />
-                    <button onClick={sendPost} type='submit'>Send</button>
-                </form>
-            </div>
+            <form>
+                <div className="comment2" style={{backgroundColor: "white", border: "1px solid lightgray"}}>
+                  <CreateIcon className=""/>
+                  <textarea
+                    className="input"
+                    id="review-text"
+                    onChange={handleInput}
+                    placeholder="Write a post" 
+                    ref={inputRef}
+                    rows={1}
+                    value={input}
+                    autoComplete="off"
+                    onKeyPress={handleKeyPress}
+                  />
+                </div>
+                <button onClick={sendPost} type='submit' style={{ display: 'none' }}>Send</button>
+            </form>
+
+            {/*<div className="feed__input">*/}
+              {/*<form><input type="text" value={input} placeholder="Write a post" autoComplete="off" onChange={handleInput} id="review-text2" ref={inputRef} rows={1} /><button onClick={sendPost} type='submit'>Send</button></form>*/}
+            {/*</div>*/}
+
             
             <div className="feed__inputOptions">
-              <div className="text-xs text-slate-500 min-h-[48px]">
-                {loading ? <button className="btn btn-ghost loading pt-4" ></button> : <div className="pt-6">All posts are controlled via <a href="https://openai.com/blog/openai-api">OpenAI API.</a></div>}
+              <div className="text-xs text-slate-500 min-h-[76px]">
+                {loading ? (<button className="btn btn-ghost loading pt-8" ></button>) : (<div><div className={char_limit - input.length > 10 ? "pt-4 text-center" : "pt-4 text-center text-red-600"}>You have {(char_limit - input.length )} characters left.</div><div className="pt-4 text-center text-[10px]">ⓘ Posts and comments are checked via <a href="https://openai.com/blog/openai-api">OpenAI API.</a></div></div>)}
               </div>
             </div>
         </div>
-
-        {posts.map(({ id, data: {name, description, message, photoUrl } }) => (
+        {posts.map(({ id, data: {name, description, message, timestamp} }) => (
           <Post key={id}
+          id={id}
           name={name} 
           description={description}
-          message={message}/>
+          message={message}
+          timestamp={timestamp}
+          />
+
         ))
         }
 
