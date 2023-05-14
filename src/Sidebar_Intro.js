@@ -97,7 +97,7 @@ function Sidebar_Intro({open, setOpen, chatOpened, setChatOpened, chatDisplayed,
 					<h2 className="text-2xl font-bold " >Simon Beno</h2>
 					<h4>aspiring software engineer based in Omaha, Nebraska</h4>
 					<p className="text-sm text-slate-500 mt-2">Omaha, Nebraska, United States</p>
-					<p className="text-linkedin font-semibold text-sm mt-2"><span className="hover:underline hover:cursor-default">157 followers</span> · <span className="hover:underline hover:cursor-default">155 connections</span></p>
+					<p className="text-linkedin font-semibold text-sm mt-2"><span className="hover:underline hover:cursor-default">161 followers</span> · <span className="hover:underline hover:cursor-default">160 connections</span></p>
 
 
 					<div onClick={handleOpenChat} className="flex items-center p-1 pl-2 pr-4 mt-3 rounded-3xl transition duration-200 delay-50 hover:delay-50 hover:cursor-pointer w-min bg-linkedin hover:bg-linkedin2">

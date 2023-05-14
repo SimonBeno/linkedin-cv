@@ -42,7 +42,7 @@ function Header({handleClick, ProjectsRef, SchoolRef, WorkRef, SkillsRef, LangRe
 			<HeaderOption Icon={LanguageIcon} Ref={LangRef} handleClick={handleClick}  title="Langugages"/> {/*Languages*/}
 			<HeaderOption Icon={VolunteerActivismIcon} Ref={VolRef} handleClick={handleClick} title="Voluteer"/> {/*Volunteer*/}
 			<HeaderOption Icon={RecordVoiceOverIcon} Ref={RefRef} handleClick={handleClick} title="References"/> {/*References*/} 
-			<a href="https://www.linkedin.com/in/simon-beno-056b631ab/"><HeaderOption avatar={avatar} title="Profile"/></a> {/*Profile*/}
+			<a href="https://www.linkedin.com/in/simon-beno-056b631ab/" target="_blank"><HeaderOption avatar={avatar} title="Profile"/></a> {/*Profile*/}
 		</div>
 	</div>
 
