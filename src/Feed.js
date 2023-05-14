@@ -171,6 +171,10 @@ const sendPost = async e => {
       setChanged(previousState => !previousState)
       console.log("OK");
     }
+    else if (message_bad_language && message_no_meaning) {
+      setError("I think you were not being respectful...");
+      console.log("I think you were not being respectful...");
+    }
     else if (message_no_meaning){
       setError("Try providing some meaningful message.");
       console.log("Try providing some meaningful message");
