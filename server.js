@@ -8,7 +8,7 @@ app.use(cors())
 
 app.post('/completions', async (req, res) => {
 
-	const openai_API_KEY = ''
+	const openai_API_KEY = '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'
 
 	var message = req.body.message;
 	var prompt = "I want you to act as a bad language and meaning checker. I will give you a text and I need you to find out two things: whether this text includes some swear words, some inappropriate things, if it is trying to make fun of someone or some public figure, if it is derrogatory or condescending. If you feel like this message was not appropriate based on the previous requirements, return this text: Bad language. Otherwise, consider this message to be respectful. Second, I want you to find out, if this text does make sense. If it is some gibberish and it does not comprise of actual words, or these words are in an order that does not make sense in any context or any conversation, return this text: No meaning. Otherwise, consider this text has some meaning. If the message passed both tests, in other words if it is both respectful and has a meaning, return this text: Message is good. This is the text: " + message;
@@ -63,7 +63,7 @@ app.post('/mail_request', async (req, res) => {
 	// tu je guide ako pridat open tracking, cc, bcc, attachments, reply to etc: https://docs.sendgrid.com/api-reference/mail-send/mail-send#handlebars
 
 	const sgMail = require('@sendgrid/mail')
-	const sendgrid_API_KEY = '';
+	const sendgrid_API_KEY = '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';
 	sgMail.setApiKey(sendgrid_API_KEY);
 	const msg1 = {
 	  to: email_address, // Change to your recipient
