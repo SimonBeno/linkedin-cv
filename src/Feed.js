@@ -125,8 +125,8 @@ const sendPost = async e => {
       }
 
       try {
-        // const response = await fetch('http://localhost:8000/completions', options) DEVELOPMENT
-        const response = await fetch('https://linkedin-cv-beno.herokuapp.com/completions', options)
+        const response = await fetch('http://localhost:8000/completions', options) // DEVELOPMENT
+        // const response = await fetch('https://linkedin-cv-beno.herokuapp.com/completions', options) // PRODUCTION
         const data = response.json();
         return data;
       } 

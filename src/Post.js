@@ -99,22 +99,6 @@ useEffect(() => {
       }, [commOpen, autofocus])
 
 
-
-    /*
-    // textarea resizing
-      useEffect(() => {
-        if (textAreaRef.current) {
-          // We need to reset the height momentarily to get the correct scrollHeight for the textarea
-          textAreaRef.current.style.height = "0px";
-          const scrollHeight = textAreaRef.current.scrollHeight;
-
-          // We then set the height directly, outside of the render loop
-          textAreaRef.current.style.height = scrollHeight + "px";
-        }
-      }, [textAreaRef, input, commOpen]);
-    */
-
-
     // char limit to input
     const char_limit = 281;
     const handleInput = (e) => {
@@ -156,8 +140,8 @@ const onSubmit = async e => {
           }
 
           try {
-            // const response = await fetch('http://localhost:8000/completions', options) DEVELOPMENT
-            const response = await fetch('https://linkedin-cv-beno.herokuapp.com/completions', options)
+            const response = await fetch('http://localhost:8000/completions', options) // DEVELOPMENT
+            // const response = await fetch('https://linkedin-cv-beno.herokuapp.com/completions', options) // PRODUCTION
             const data = response.json();
             return data;
           } 

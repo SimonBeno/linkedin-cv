@@ -1,7 +1,11 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore/lite';
 
-// TODO: Replace the following with your app's Firebase project configuration
+// If you're seeing this, please do not try to write to the database. 
+// I was too busy to implement interaction with Firebase on server and I left it exposed, 
+// hoping no one will be as bored and ill-wishing as to try and ruin the database.
+// Do someting more productive instead. Thank you.
+
 const firebaseConfig = {
     apiKey: "AIzaSyC6B4fnC3OuoS4x-eCx1a-6EY76ZpjW6fY",
       authDomain: "linkedin-cv-6f2bb.firebaseapp.com",
@@ -14,23 +18,5 @@ const firebaseConfig = {
 
 const firebaseApp = initializeApp(firebaseConfig);
 const db = getFirestore(firebaseApp);
-//const auth = getAuth(firebaseApp);
-
-/*
-async function getCities(db) {
-    const citiesCol = collection(db, 'posts');
-    const citySnapshot = await getDocs(citiesCol);
-    const cityList = citySnapshot.docs.map(doc => doc.data());
-    console.log(cityList);
-  }
-
-getCities(db);
-*/
 
 export { db };
-
-
-/*
-const auth = getAuth(firebaseApp);
-*/
-
