@@ -49,6 +49,7 @@ const textAreaRef = useRef();
 const [commentDisabled, setCommentDisabled] = useState(false);
 const [comments, setComments] = useState([])
 const [commentAdded, setCommentAdded] = useState(false)
+const [error, setError] = useState("");
 
 
 // when first rendered, map all comments
@@ -118,6 +119,7 @@ useEffect(() => {
     const char_limit = 281;
     const handleInput = (e) => {
         var value = e.target.value;
+        setError("");
 
         if (value.length > char_limit){
             var value = value.slice(0, char_limit);
@@ -168,12 +170,16 @@ const onSubmit = async e => {
         // evaluating correctness
         var server_response = await serverResponse(input);
         var response = server_response.choices[0].message.content;
-        const lookingfor = "Message is good";
-        const includes = response.includes(lookingfor);
+        var response = response.toLowerCase();
+        const message_good = response.includes("message is good");
+        const message_no_meaning = response.includes("no meaning");
+        const message_bad_language = response.includes("bad language");
 
         // if Message is good
-        if (includes)
+        if (message_good)
         {
+
+            setError("");
 
             // retrieve comments
             const postsColl = collection(db, 'posts');
@@ -221,8 +227,17 @@ const onSubmit = async e => {
 
             console.log("OK");
         }
-        else if (!includes){
-            console.log("Not OK");
+        else if (message_bad_language && message_no_meaning) {
+          setError("I think you were not being respectful...");
+          console.log("I think you were not being respectful...");
+        }
+        else if (message_no_meaning){
+          setError("Try providing some meaningful message.");
+          console.log("Try providing some meaningful message");
+        }
+        else if (message_bad_language) {
+          setError("Be respectful, please...");
+          console.log("Be respectful, please...");
         }
     }
     else if (commentDisabled){
@@ -369,6 +384,12 @@ var limitColor = char_limit - input.length;
         <div className="text-xs text-slate-500 min-h-[48px] text-center">
           <button className="btn btn-ghost loading pt-4"></button>
         </div>
+        }
+
+        {error && 
+            <div className="">
+                <p className="pt-6 pb-2 text-center text-[12px] text-red-500">{error}</p>
+            </div>
         }
 
         {comments.length !== 0 && <hr className="text-seda_ciara mt-3"></hr>}
