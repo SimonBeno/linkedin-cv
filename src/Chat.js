@@ -143,7 +143,7 @@ const handleSubmit = async e => {
 
         try {
           //const response = await fetch('http://localhost:8000/mail_request', options) // DEVELOPMENT
-          const response = await fetch('http://linkedin-cv-beno.herokuapp.com/mail_request', options) // PRODUCTION
+          const response = await fetch('https://linkedin-cv-beno.herokuapp.com/mail_request', options) // PRODUCTION
           return response;
         } 
         catch(error) {
