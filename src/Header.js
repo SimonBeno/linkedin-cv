@@ -16,12 +16,19 @@ import HeaderOption from './HeaderOption.js';
 import linkedinImage from "./utils/linkedin.png";
 import avatar from './utils/Simon.jpg';
 
+// MUI
+import Modal from '@mui/joy/Modal';
+import ModalClose from '@mui/joy/ModalClose';
+import Typography from '@mui/joy/Typography';
+import Sheet from '@mui/joy/Sheet';
 
 function Header({handleClick, ProjectsRef, SchoolRef, WorkRef, SkillsRef, LangRef, VolRef, RefRef}) {
 	
+	const [open, setOpen] = useState(false);
+	const [aboutOpen, setAboutOpen] = useState(false);
 
 	return (
-	<div className="header">
+	<div className="header flex items-center">
 		<div className="header__left">
 			<img src={linkedinImage} alt="LinkedIn" />
 
@@ -32,8 +39,6 @@ function Header({handleClick, ProjectsRef, SchoolRef, WorkRef, SkillsRef, LangRe
 
 		</div>
 
-
-
 		<div className="header__right">
 			<HeaderOption Icon={SchoolIcon} Ref={SchoolRef} handleClick={handleClick} title="Education" /> {/*Education*/}
 			<HeaderOption Icon={HandymanIcon} Ref={WorkRef} handleClick={handleClick} title="Work"/> {/*Work*/}
@@ -43,6 +48,46 @@ function Header({handleClick, ProjectsRef, SchoolRef, WorkRef, SkillsRef, LangRe
 			<HeaderOption Icon={VolunteerActivismIcon} Ref={VolRef} handleClick={handleClick} title="Voluteer"/> {/*Volunteer*/}
 			<HeaderOption Icon={RecordVoiceOverIcon} Ref={RefRef} handleClick={handleClick} title="References"/> {/*References*/} 
 			<a href="https://www.linkedin.com/in/simon-beno-056b631ab/" target="_blank"><HeaderOption avatar={avatar} title="Profile"/></a> {/*Profile*/}
+		</div>
+
+		<div className="fixed top-4 right-5">
+			<React.Fragment>
+		      <p className="cursor-pointer" onClick={() => setOpen(true)}>ⓘ</p>
+		      <Modal
+		        aria-labelledby="modal-title"
+		        aria-describedby="modal-desc"
+		        open={open}
+		        onClose={() => setOpen(false)}
+		        sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+		      >
+		        <Sheet
+		          variant="outlined"
+		          sx={{
+		            maxWidth: 2000,
+		            borderRadius: 'md',
+		            p: 3,
+		            boxShadow: 'lg',
+		          }}
+		        >
+		          <ModalClose
+		            variant="outlined"
+		            sx={{
+		              top: '20px',
+		              right: '20px',
+		              borderRadius: '50%',
+		              bgcolor: 'background.body',
+		              display: 'none',
+		            }}
+		          />
+		          	<div className="text-center max-w-md">
+			     		<p>This is Simon's Website. </p>
+			     		<p>It is created using React on frontend and Node.js on backend.</p>
+			     		<p>It uses OpenAI API to check the comments and SendGrid API to send automated emails with a dynamic template.</p>
+			     		<p>Firestore is used as a database for all the posts.</p>
+			     	</div>
+		        </Sheet>
+		      </Modal>
+			</React.Fragment>
 		</div>
 	</div>
 

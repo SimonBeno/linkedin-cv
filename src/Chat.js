@@ -26,6 +26,7 @@ function Chat({chatOpened, setChatOpened, chatDisplayed, setChatDisplayed}) {
 function closeChat() {
       setChatDisplayed(false)
       setChatOpened(false);
+      setEmail("")
       setMessage("")
       setValidInput(true);
       setNotification(false);
@@ -141,7 +142,8 @@ const handleSubmit = async e => {
         }
 
         try {
-          const response = await fetch('https://linkedin-cv-beno.herokuapp.com/mail_request', options)
+          //const response = await fetch('http://localhost:8000/mail_request', options) // DEVELOPMENT
+          const response = await fetch('http://linkedin-cv-beno.herokuapp.com/mail_request', options) // PRODUCTION
           return response;
         } 
         catch(error) {

@@ -68,9 +68,6 @@ app.post('/mail_request', async (req, res) => {
 	const msg1 = {
 	  to: email_address, // Change to your recipient
 	  from: 'simon@sbeno.us', // Change to your verified sender
-	  //subject: 'Simon Beno Response',
-	  //text: 'Your request has been submitted',
-	  //html: '<div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:200px;"><h1 style="font-family:Arial, sans-serif;">Thanks for reaching out!</h1><p style="font-family:Arial, sans-serif; font-weight:600; text-align:center;">Your request has been sent to simon@sbeno.us. I will be with you shortly.</p><p style="font-family:Arial, sans-serif; text-align:center; font-size:14px;">In the meantime, you can check the posts on my <span><a href="https://www.sbeno.us">website</a></span> to see if you can find the answer there.</p></div><div data-role="module-unsubscribe" class="module" role="module" data-type="unsubscribe" style="color:#444444; font-size:12px; line-height:20px; padding:16px 16px 16px 16px; text-align:Center; display:flex; flex-direction:column; margin-top:40" data-muid="4e838cf3-9892-4a6d-94d6-170e474d21e5"><p style="font-size:12px;"><a class="Unsubscribe--unsubscribeLink" href="{{{unsubscribe}}}" target="_blank" style="font-family:sans-serif;text-decoration:none;">Stop receiving these mails</a></p><p style="font-size:12px; line-height:1px"><a href="{{{unsubscribe_preferences}}}" target="_blank" class="Unsubscribe--unsubscribePreferences" style="font-family:sans-serif;text-decoration:none;">Unsubscribe Preferences</a></p></div>', // template: https://mc.sendgrid.com/dynamic-templates/d-e3a8ac72a1164ef388ba0a7265516118/version/4fff62db-07f6-4163-bc20-51dcb65229a5/editor
 	  templateId: 'd-b736891b89c140b3b085fe50e7856f94',
 	  //dynamicTemplateData: {
 	  //  variable1: "value1",
