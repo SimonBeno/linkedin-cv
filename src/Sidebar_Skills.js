@@ -35,10 +35,10 @@ function Sidebar_Skills({SkillsRef}){
 	<div className="">
 		
 		<div id="skills" ref={SkillsRef} className={` ${open ? 'sidebar__div' : 'sidebar__div__skills'} mt-2 p-5 pl-8 pr-8`}>
-			<h2 className="text-xl font-semibold ">Skills</h2>
+			<h2 className="text-xl font-semibold mb-1">Skills</h2>
 
 			{open ? (
-			<>
+			<div className="mb-3">
 			<div className="mt-3">  
 				<div className="flex flex-row">
 					<div className="flex flex-col">
@@ -112,7 +112,14 @@ function Sidebar_Skills({SkillsRef}){
 					</div>
 				</div>
 			</div>
-
+			<hr className="mt-4 mb-4"></hr>
+			<div className="">  
+				<div className="flex flex-row">
+					<div className="flex flex-col">
+						<p className="font-semibold">Git</p>
+					</div>
+				</div>
+			</div>
 			<hr className="mt-4 mb-4"></hr>
 			<div className="">  
 				<div className="flex flex-row">
@@ -125,24 +132,11 @@ function Sidebar_Skills({SkillsRef}){
 					</div>
 				</div>
 			</div>
-
-			<hr className="mt-4 mb-4"></hr>
-			<div className="mb-4">  
-				<div className="flex flex-row">
-					<div className="flex flex-col">
-						<p className="font-semibold mb-3">Git</p>
-						<div className="flex flex-row">
-							<a href="https://pll.harvard.edu/course/cs50-introduction-computer-science?delta=0" target="_blank"><img className="w-[20px] mr-2" src={HarvardLogo} alt="pic" ></img></a>
-							<p className="text-sm">CS50x Harvard Computer Science</p>
-						</div>
-					</div>
-				</div>
 			</div>
-			</>
 			)
 			:
 			(
-			<>
+			<div>
 				<div className="mt-3">  
 				<div className="flex flex-row">
 					<div className="flex flex-col">
@@ -180,7 +174,7 @@ function Sidebar_Skills({SkillsRef}){
 					</div>
 				</div>
 			</div>
-			</>
+			</div>
 			)}
 		</div>
 

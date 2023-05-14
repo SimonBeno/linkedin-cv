@@ -5,21 +5,21 @@ import "./Feed.css";
 
 //Firebase
 import { db } from "./firebase.js";
-import { getDocs, collection, addDoc, updateDoc, serverTimestamp, query, orderBy } from 'firebase/firestore/lite';
+import { getDocs, collection, addDoc, serverTimestamp, query, orderBy } from 'firebase/firestore/lite';
 
 //openAI
-import { getOpenAIResponse } from './app/openai.js';
-import { Configuration, OpenAIApi } from 'openai';
+// import { getOpenAIResponse } from './app/openai.js';
+// import { Configuration, OpenAIApi } from 'openai';
 
 // own components
-import InputOption from './InputOption.js';
+//import InputOption from './InputOption.js';
 import Post from './Post.js';
 
 // outside components
 import CreateIcon from '@mui/icons-material/Create';
-import CalendarViewDayIcon from '@mui/icons-material/CalendarViewDay';
-import EventNoteIcon from '@mui/icons-material/EventNote';
-import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
+// import CalendarViewDayIcon from '@mui/icons-material/CalendarViewDay';
+// import EventNoteIcon from '@mui/icons-material/EventNote';
+// import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
 
 
 function Feed({loaded, setLoaded}) {
@@ -29,6 +29,7 @@ function Feed({loaded, setLoaded}) {
   const [posts, setPosts] = useState([])
   const [changed, setChanged] = useState(false); // to fire off new post render
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
  
 
@@ -111,8 +112,6 @@ const sendPost = async e => {
 
     setLoading(true);
 
-    const lookingfor = "Message is good";
-
     async function serverResponse(input){
 
       const options = {
@@ -138,11 +137,15 @@ const sendPost = async e => {
 
     var server_response = await serverResponse(input);
     var response = server_response.choices[0].message.content;
-    const includes = response.includes(lookingfor);
+    var response = response.toLowerCase();
+    const message_good = response.includes("message is good");
+    const message_no_meaning = response.includes("no meaning");
+    const message_bad_language = response.includes("bad language");
 
 
-    if (includes)
+    if (message_good)
     {
+      setError("");
       const postsColl = collection(db, 'posts');
 
       async function writePost()
@@ -167,12 +170,18 @@ const sendPost = async e => {
       setChanged(previousState => !previousState)
       console.log("OK");
     }
-    else if (!includes){
-      console.log("Not OK");
+    else if (message_no_meaning){
+      setError("Try providing some meaningful message.");
+      console.log("Try providing some meaningful message");
+    }
+    else if (message_bad_language) {
+      setError("Be respectful, please...");
+      console.log("Be respectful, please...");
     }
     
     setInput('');
     setLoading(false);
+    
 
   };
 
@@ -214,16 +223,10 @@ const recentItem = (topic) => (
                 </div>
                 <button onClick={sendPost} type='submit' style={{ display: 'none' }}>Send</button>
             </form>
-
-            {/*<div className="feed__input">*/}
-              {/*<form><input type="text" value={input} placeholder="Write a post" autoComplete="off" onChange={handleInput} id="review-text2" ref={inputRef} rows={1} /><button onClick={sendPost} type='submit'>Send</button></form>*/}
-            {/*</div>*/}
-
-            
             <div className="feed__inputOptions">
               <div className="text-xs text-slate-500 min-h-[76px]">
-                {loading ? (<button className="btn btn-ghost loading pt-8" ></button>) : (<div><div className={char_limit - input.length > 10 ? "pt-4 text-center" : "pt-4 text-center text-red-600"}>You have {(char_limit - input.length )} characters left.</div><div className="pt-4 text-center text-[10px]">ⓘ Posts and comments are checked via <a href="https://openai.com/blog/openai-api">OpenAI API.</a></div></div>)}
-              </div>
+                {loading ? (<button className="btn btn-ghost loading pt-8" ></button>) : (<div><div className={char_limit - input.length > 10 ? "pt-4 text-center" : "pt-4 text-center text-red-600"}>You have {(char_limit - input.length )} characters left.</div>{!error ? (<div className="pt-4 text-center text-[10px]">ⓘ Posts and comments are checked via <a href="https://openai.com/blog/openai-api">OpenAI API.</a></div>) : (<div className="pt-4 text-center text-[12px] text-red-500">{error}</div>)}</div>)}
+              </div>  
             </div>
         </div>
         {posts.map(({ id, data: {name, description, message, timestamp} }) => (

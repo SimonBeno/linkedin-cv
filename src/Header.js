@@ -8,6 +8,7 @@ import PsychologyIcon from '@mui/icons-material/Psychology';
 import LanguageIcon from '@mui/icons-material/Language';
 import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
 import RecordVoiceOverIcon from '@mui/icons-material/RecordVoiceOver';
+import HubIcon from '@mui/icons-material/Hub';
 
 // Local imports
 import './Header.css';
@@ -16,7 +17,7 @@ import linkedinImage from "./utils/linkedin.png";
 import avatar from './utils/Simon.jpg';
 
 
-function Header({handleClick, SchoolRef, WorkRef, SkillsRef, LangRef, VolRef, RefRef}) {
+function Header({handleClick, ProjectsRef, SchoolRef, WorkRef, SkillsRef, LangRef, VolRef, RefRef}) {
 	
 
 	return (
@@ -36,6 +37,7 @@ function Header({handleClick, SchoolRef, WorkRef, SkillsRef, LangRef, VolRef, Re
 		<div className="header__right">
 			<HeaderOption Icon={SchoolIcon} Ref={SchoolRef} handleClick={handleClick} title="Education" /> {/*Education*/}
 			<HeaderOption Icon={HandymanIcon} Ref={WorkRef} handleClick={handleClick} title="Work"/> {/*Work*/}
+			<HeaderOption Icon={HubIcon} Ref={ProjectsRef} handleClick={handleClick} title="Projects" /> {/*Projects*/}
 			<HeaderOption Icon={PsychologyIcon} Ref={SkillsRef} handleClick={handleClick} title="Skills"/> {/*Skills*/}
 			<HeaderOption Icon={LanguageIcon} Ref={LangRef} handleClick={handleClick}  title="Langugages"/> {/*Languages*/}
 			<HeaderOption Icon={VolunteerActivismIcon} Ref={VolRef} handleClick={handleClick} title="Voluteer"/> {/*Volunteer*/}

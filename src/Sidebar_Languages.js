@@ -43,13 +43,13 @@ function Sidebar_Languages({LangRef}){
 						<p className="text-sm text-gray-600 mb-1">Professional working proficiency</p>
 					</div>
 				</div>
-				<hr className="mt-2 mb-3"></hr>
+				{/*<hr className="mt-2 mb-3"></hr>
 				<div className="flex flex-row">
 					<div className="">
 						<p className="font-semibold mb-1">Polish</p>
 						<p className="text-sm text-gray-600 mb-1">Limited professional proficiency</p>
 					</div>
-				</div>
+				</div>*/}
 				<hr className="mt-2 mb-3"></hr>
 				<div className="flex flex-row">
 					<div className="">

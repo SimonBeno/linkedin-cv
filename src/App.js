@@ -25,6 +25,7 @@ function App() {
   const LangRef = useRef(null);
   const VolRef = useRef(null);
   const RefRef = useRef(null);
+  const ProjectsRef = useRef(null);
 
 function handleClick(sectionRef){
     const offset = 16;
@@ -60,10 +61,10 @@ function handleOpenChat() {
         </div>)
         }
 
-        <Header handleClick={handleClick} SchoolRef={SchoolRef} WorkRef={WorkRef} SkillsRef={SkillsRef} LangRef={LangRef} VolRef={VolRef} RefRef={RefRef}/>
+        <Header handleClick={handleClick} ProjectsRef={ProjectsRef} SchoolRef={SchoolRef} WorkRef={WorkRef} SkillsRef={SkillsRef} LangRef={LangRef} VolRef={VolRef} RefRef={RefRef}/>
 
           <div className="app__body">
-            <Sidebar chatOpened={chatOpened} setChatOpened={setChatOpened} chatDisplayed={chatDisplayed} setChatDisplayed={setChatDisplayed} SchoolRef={SchoolRef} WorkRef={WorkRef} SkillsRef={SkillsRef} LangRef={LangRef} VolRef={VolRef} RefRef={RefRef}/>
+            <Sidebar chatOpened={chatOpened} setChatOpened={setChatOpened} chatDisplayed={chatDisplayed} setChatDisplayed={setChatDisplayed} ProjectsRef={ProjectsRef} SchoolRef={SchoolRef} WorkRef={WorkRef} SkillsRef={SkillsRef} LangRef={LangRef} VolRef={VolRef} RefRef={RefRef}/>
             <Feed loaded={loaded} setLoaded={setLoaded}/>
           </div>
 

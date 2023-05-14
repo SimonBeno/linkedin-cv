@@ -7,6 +7,7 @@ import { Avatar } from "@mui/material";
 // local imports
 import "./Sidebar.css";
 import Sidebar_Intro from './Sidebar_Intro.js'
+import Sidebar_Projects from './Sidebar_Projects.js'
 import Sidebar_education from './Sidebar_education.js'
 import Sidebar_Work from './Sidebar_Work.js'
 import Sidebar_Skills from './Sidebar_Skills.js'
@@ -23,7 +24,7 @@ import Sidebar_Languages from './Sidebar_Languages.js'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 
-function Sidebar({chatOpened, setChatOpened, chatDisplayed, setChatDisplayed, SchoolRef, WorkRef, SkillsRef, LangRef, VolRef, RefRef }){
+function Sidebar({chatOpened, setChatOpened, chatDisplayed, setChatDisplayed, ProjectsRef, SchoolRef, WorkRef, SkillsRef, LangRef, VolRef, RefRef }){
 	
 
 	const [open, setOpen] = useState(false);
@@ -76,9 +77,9 @@ function Sidebar({chatOpened, setChatOpened, chatDisplayed, setChatDisplayed, Sc
 			</div>
 		</div>
 
-
 		<Sidebar_education SchoolRef={SchoolRef} />
 		<Sidebar_Work WorkRef={WorkRef}/>
+		<Sidebar_Projects ProjectsRef={ProjectsRef}/>
 		<Sidebar_Skills SkillsRef={SkillsRef}/>
 		<Sidebar_Languages LangRef={LangRef}/>
 		<Sidebar_Volunteering VolRef={VolRef}/>
