@@ -80,10 +80,15 @@ function Header({handleClick, ProjectsRef, SchoolRef, WorkRef, SkillsRef, LangRe
 		            }}
 		          />
 		          	<div className="text-center max-w-md">
-			     		<p>This is Simon's Website. </p>
-			     		<p>It is created using React on frontend and Node.js on backend.</p>
-			     		<p>It uses OpenAI API to check the comments and SendGrid API to send automated emails with a dynamic template.</p>
-			     		<p>Firestore is used as a database for all the posts.</p>
+			     		<p className="font-semibold">Welcome and thank you for visiting my website!</p>
+			     		<br></br>
+			     		<p>This LinkedIn inspired web app was created as a substitute for a classic Resumé. You can access information about my education, work experience, projects I did so far and much more. In the Posts section, you can publicly ask questions that I will later answer, as well as like or comment other posts. The content is checked via OpenAI API for correctness and respectfulness. You can write a personal email to me as well.</p>
+			     		<br></br>
+			     		<p>Client side is created using React. Frameworks and libraries I used include TailwindCSS, DaisyUI and MUI.</p>
+			     		<br></br>
+			     		<p>On the server, I used Node.js, Express framework and CORS to build and maintain the server. Communication with OpenAI (posts checker), Firebase (posts database) and Sendgrid (automated mails) takes place here.</p>
+			     		<br></br>
+			     		<p>I provided links to all mentioned organizations and certificates, so feel free to explore every button and link.</p>
 			     	</div>
 		        </Sheet>
 		      </Modal>

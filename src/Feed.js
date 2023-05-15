@@ -204,10 +204,10 @@ const recentItem = (topic) => (
       <div className="feed__hashes ">
         <p className="p-2 font-semibold text-base">Talks about</p>
         {recentItem("Engineering")}
-        {recentItem("JSX")}
+        {recentItem("AutoGPT")}
         {recentItem("75 Hard")}
         {recentItem("Fitness")}
-        {recentItem("NoSleep society")}
+        {recentItem("Travelling")}
         
       </div>
         <div className="feed__inputContainer">
