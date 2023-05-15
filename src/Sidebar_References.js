@@ -69,9 +69,9 @@ function Sidebar_References({RefRef}){
 				<div className="flex flex-row mb-3">
 					<img className="w-[3rem] h-[3rem] mr-4" src={Profile_Pic} alt="pic" ></img>
 					<div className="">
-						<p className=" font-semibold mb-1">Jordann Heckart</p>
-						<p className="text-sm text-gray-600 mb-1">Midland University advisor</p>
-						<ContactOpt title="heckart@midlandu.edu" link="heckart@midlandu.edu" icon="" website="false"/>
+						<p className=" font-semibold mb-1">Lynn Schnoor</p>
+						<p className="text-sm text-gray-600 mb-1">Midland University Programming professor</p>
+						<ContactOpt title="schnoor@midlandu.edu" link="schnoor@midlandu.edu" icon="" website="false"/>
 					</div>
 				</div>
 			</div>
