@@ -9,6 +9,7 @@ import { Avatar } from "@mui/material";
 import ContactOpt from './ContactOpt.js'
 
 import profilePic from './utils/Simon.jpg';
+import profilePicBig from './utils/Simon_orig.jpg'
 import avatar from './utils/Simon.jpg';
 import background from './utils/bg-linkedin.png';
 import LinkedImg from './utils/linkedin.png';
@@ -87,7 +88,7 @@ function Sidebar_Intro({open, setOpen, chatOpened, setChatOpened, chatDisplayed,
 				              bgcolor: 'background.body',
 				            }}
 				          />
-					     	<Avatar src={profilePic} className="avatar"/>
+					     	<Avatar src={profilePicBig} className="avatar"/>
 				        </Sheet>
 				      </Modal>
 				    </React.Fragment>
