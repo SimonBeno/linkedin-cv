@@ -26,7 +26,7 @@ function Sidebar_Projects({ProjectsRef}){
 						<p className=" text-lg font-semibold mb-2">Disciplined</p>
 						<p className="text-md text-sm mb-2 w-fit">CS50 Final Project - web application for creating, tracking and maintaining habits of user's choice. 
 HTML, Javascript, CSS and Jinja on front-end, Python Flask on back-end. It uses local SQL databases to keep track of different users and their passwords, active habits, evaluations, durations etc.</p>
-						<a href="https://github.com/SimonBeno/CS50-finalproject" target="_blank"><p className="text-sm text-gray-600 mb-1 hover:underline cursor-pointer">GitHub Repository</p></a>
+						<a href="https://github.com/SimonBeno/CS50-finalproject" target="_blank"><p className="text-sm text-gray-600 mb-1 hover:underline cursor-pointer w-fit">GitHub Repository</p></a>
 					</div>
 				</div>
 				<hr className="mt-2 mb-3"></hr>
@@ -37,7 +37,7 @@ HTML, Javascript, CSS and Jinja on front-end, Python Flask on back-end. It uses 
 It uses API to get stock prices of companies in real-time.
 User first has to register, login and gets $10,000 to buy or sell stocks (balance can be changed).
 It keeps track of all the transactions the user has made.</p>
-						<a href="https://github.com/SimonBeno/CS50-projects/tree/master/finance" target="_blank"><p className="text-sm text-gray-600 mb-1 hover:underline cursor-pointer">GitHub Repository</p></a>
+						<a href="https://github.com/SimonBeno/CS50-projects/tree/master/finance" target="_blank"><p className="text-sm text-gray-600 mb-1 hover:underline cursor-pointer w-fit">GitHub Repository</p></a>
 					</div>
 				</div>
 				<hr className="mt-2 mb-3"></hr>
@@ -48,7 +48,7 @@ It keeps track of all the transactions the user has made.</p>
 It can convert images to grayscale, sepia and revert or blur the image.
 It relies on getting rgb values of every pixel of the image and then 
 calculating values using different algorithms to apply the filter.</p>
-						<a href="https://github.com/SimonBeno/CS50-projects/tree/master/filter-less" target="_blank"><p className="text-sm text-gray-600 mb-1 hover:underline cursor-pointer">GitHub Repository</p></a>
+						<a href="https://github.com/SimonBeno/CS50-projects/tree/master/filter-less" target="_blank"><p className="text-sm text-gray-600 mb-1 hover:underline cursor-pointer w-fit">GitHub Repository</p></a>
 					</div>
 				</div>
 				{/*<hr className="mt-2 mb-3"></hr>
@@ -56,7 +56,7 @@ calculating values using different algorithms to apply the filter.</p>
 					<div className="">
 						<p className="text-lg font-semibold mb-2">*Project Name</p>
 						<p className="text-sm mb-2 w-fit">*project description</p>
-						<a href="" target="_blank"><p className="text-sm text-gray-600 mb-1 hover:underline cursor-pointer">GitHub Repository</p></a>
+						<a href="" target="_blank"><p className="text-sm text-gray-600 mb-1 hover:underline cursor-pointer w-fit">GitHub Repository</p></a>
 					</div>
 				</div>*/}
 			</div>
