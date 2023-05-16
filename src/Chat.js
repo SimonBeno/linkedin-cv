@@ -18,7 +18,10 @@ function Chat({chatOpened, setChatOpened, chatDisplayed, setChatDisplayed}) {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [loadingSubmit, setLoadingSubmit] = useState(false);
+  const [loadingValidation, setLoadingValidation] = useState(false);
   const [notification, setNotification] = useState(false);
+  const [error, setError] = useState(false);
 
   const [activate, setActivate] = useState(false);
   const [activate1, setActivate1] = useState(false);
@@ -33,14 +36,11 @@ function closeChat() {
       setMessage("")
       setValidInput(true);
       setNotification(false);
+      setError(false);
     }
 
 function minimizeChat() {
   setChatOpened(!chatOpened);
-}
-
-function closeNotification(){
-  setNotification(false);
 }
 
 
@@ -87,6 +87,7 @@ function handleTextareaChange(e) {
   if (value){
     setActivate2(true);
     setNotification(false);
+    setError(false);
   }
   else {
    setActivate2(false); 
@@ -127,6 +128,7 @@ const handleSubmit = async e => {
   e.preventDefault();
 
   setLoading(true);
+  setLoadingSubmit(true);
 
       async function serverResponse(message, email){
 
@@ -157,6 +159,8 @@ const handleSubmit = async e => {
 
       var server_response = await serverResponse(message, email);
       console.log(server_response);
+      setLoadingSubmit(false);
+      setLoadingValidation(true);
 
 
       // WEB SOCKET
@@ -165,18 +169,28 @@ const handleSubmit = async e => {
 
       socket.on("email_event", data => {
         console.log(data);
-        setNotification(true);
-        setEmail(data);
+        if (data.includes("delivered")){
+          setLoading(false);
+          setNotification(true)
+          setMessage("");
+          setEmail("");
+          setActivate(false);
+          setActivate1(false);
+          setActivate2(false);
+          setLoadingValidation(false);
+        }
+        else {
+          setLoading(false);
+          setNotification(true);
+          setError(true);
+          setMessage("");
+          setEmail("");
+          setActivate(false);
+          setActivate1(false);
+          setActivate2(false);
+          setLoadingValidation(false);
+        }
       })
-
-
-
-setLoading(false);
-setMessage("");
-setEmail("");
-setActivate(false);
-setActivate1(false);
-setActivate2(false);
 
 }
 
@@ -234,21 +248,30 @@ setActivate2(false);
                         <button className="btn btn-disabled w-min bg-gray-200 text-gray-400">Submit</button>
                       ))
                       :
-                      (
-                        <div className="flex flex-col items-center p-2 bg-green-200 rounded-2xl" style={{marginTop: -40}}>
+                        !error ?
+                        (<div className="flex flex-col items-center p-2 bg-green-200 rounded-2xl" style={{marginTop: -40}}>
                           <p className="text-xs text-center font-semibold">Your request has been submitted!</p>
                           <p className="text-xs text-center mt-2" >If you don't see the mail in your inbox within a few minutes, please check the Spam and Promotions folder</p>
-                        </div>
-                      )
+                        </div>)
+                        :
+                        (<div className="flex flex-col items-center p-2 bg-red-300 rounded-2xl" style={{marginTop: -20}}>
+                          <p className="text-xs text-center font-semibold">Request failed</p>
+                          <p className="text-xs text-center mt-2" >You seemed to have provided invalid email. Please, try again.</p>
+                        </div>)
+
                     )
 
                     : 
 
-                    (
-                      <div className="text-xs text-slate-500 min-h-[48px] text-center">
-                        <button className="btn btn-ghost loading "></button>
-                      </div>
-                    )
+                    loadingSubmit ? 
+                      (<div className="text-xs text-slate-500 min-h-[48px] text-center">
+                        <p className="mt-4">Submitting...</p>
+                      </div>)
+                      :
+                      (<div className="text-xs text-slate-500 min-h-[48px] text-center">
+                        <p className="mt-4">Validating email...</p>
+                      </div>)
+                    
                 }
 
 
