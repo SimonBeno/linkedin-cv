@@ -3,6 +3,9 @@ import './App.css';
 import './Chat.css';
 
 
+import socketIOClient from "socket.io-client";
+
+
 //import CloseIcon from '@mui/icons-material/Close';
 //import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
 
@@ -155,10 +158,22 @@ const handleSubmit = async e => {
       var server_response = await serverResponse(message, email);
       console.log(server_response);
 
+
+      // WEB SOCKET
+      const ENDPOINT = "https://linkedin-cv-beno.herokuapp.com";
+      const socket = socketIOClient(ENDPOINT);
+
+      socket.on("email_event", data => {
+        console.log(data);
+        setNotification(true);
+        setEmail(data);
+      })
+
+
+
 setLoading(false);
 setMessage("");
 setEmail("");
-setNotification(true);
 setActivate(false);
 setActivate1(false);
 setActivate2(false);
