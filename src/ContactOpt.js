@@ -80,7 +80,7 @@ function ContactOpt({title, link, icon, website}){
 
           	{website === "true" ? (
 						<div>
-							<div className={`flex mt-4  items-center transition duration-150 delay-50 hover:delay-50 hover:grayscale-0 hover:font-semibold cursor-pointer ${open ? `font-semibold grayscale-0` : `grayscale`} `} onClick={handleTooltipOpen}>
+							<div className={`flex mt-4  items-center transition duration-150 delay-50 hover:delay-50 hover:grayscale-0 hover:font-semibold cursor-pointer ${open ? `font-semibold grayscale-0` : `grayscale`} `} >
 								{icon && (<img src={icon} alt="image" className="contact__img" />)}
 		          	<p className="ml-2 text-sm">{title}</p>
 		          	{(open && !clipboard) ? (

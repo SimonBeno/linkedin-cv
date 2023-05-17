@@ -230,7 +230,7 @@ const recentItem = (topic) => (
             </form>
             <div className="feed__inputOptions">
               <div className="text-xs text-slate-500 min-h-[76px]">
-                {loading ? (<button className="btn btn-ghost loading pt-8" ></button>) : (<div><div className={char_limit - input.length > 10 ? "pt-4 text-center" : "pt-4 text-center text-red-600"}>You have {(char_limit - input.length )} characters left.</div>{!error ? (<div className="pt-4 text-center text-[10px]">ⓘ Posts and comments are checked via <a href="https://openai.com/blog/openai-api">OpenAI API.</a></div>) : (<div className="pt-4 text-center text-[12px] text-red-500">{error}</div>)}</div>)}
+                {loading ? (<button className="btn btn-ghost loading pt-8" ></button>) : (<div><div className={char_limit - input.length > 30 ? "pt-4 text-center" : "pt-4 text-center text-red-600"}>You have {(char_limit - input.length )} characters left.</div>{!error ? (<div className="pt-4 text-center text-[10px]">Posts and comments are checked via <a href="https://openai.com/blog/openai-api">OpenAI API.</a></div>) : (<div className="pt-4 text-center text-[12px] text-red-500">{error}</div>)}</div>)}
               </div>  
             </div>
         </div>

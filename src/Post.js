@@ -81,6 +81,7 @@ useEffect(() => {
         else {
             setCommOpen(false);
             setAutofocus(false); 
+            setError("");
         }
 
     }
@@ -88,6 +89,7 @@ useEffect(() => {
     function openComment2(){
         setCommOpen(!commOpen);
         setAutofocus(false);
+        setError("");
     }
 
 
@@ -101,16 +103,17 @@ useEffect(() => {
 
     // char limit to input
     const char_limit = 281;
-    const handleInput = (e) => {
-        var value = e.target.value;
-        setError("");
 
-        if (value.length > char_limit){
-            var value = value.slice(0, char_limit);
-        }
+const handleInput = (e) => {
+    var value = e.target.value;
+    setError("");
 
-        setInput(value);
-    };
+    if (value.length > char_limit){
+        var value = value.slice(0, char_limit);
+    }
+
+    setInput(value);
+};
 
 
 
@@ -356,7 +359,7 @@ var limitColor = char_limit - input.length;
         </div>
         }
 
-        {(!loading && char_limit - input.length <= 10 && input) && 
+        {(!loading && char_limit - input.length <= 30 && input) && 
         <div className="text-xs text-slate-500 min-h-[48px] text-center">
           <div className="pt-6 text-center text-red-600">
             You have {char_limit - input.length} characters left.

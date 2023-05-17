@@ -127,6 +127,8 @@ function handleFocus(){
 const handleSubmit = async e => {
   e.preventDefault();
 
+  // TODO disable email and message input
+
   setLoading(true);
   setLoadingSubmit(true);
 
@@ -169,26 +171,30 @@ const handleSubmit = async e => {
 
       socket.on("email_event", data => {
         console.log(data);
-        if (data.includes("delivered")){
-          setLoading(false);
-          setNotification(true)
-          setMessage("");
-          setEmail("");
-          setActivate(false);
-          setActivate1(false);
-          setActivate2(false);
-          setLoadingValidation(false);
-        }
-        else {
-          setLoading(false);
-          setNotification(true);
-          setError(true);
-          setMessage("");
-          setEmail("");
-          setActivate(false);
-          setActivate1(false);
-          setActivate2(false);
-          setLoadingValidation(false);
+        if (data.includes(email)){ // prevent reacting to data sent from server triggered by other user's mails
+          if (data.includes("deferred")){
+            setLoading(false);
+            setNotification(true);
+            setError(true);
+            setMessage("");
+            setEmail("");
+            setActivate(false);
+            setActivate1(false);
+            setActivate2(false);
+            setLoadingValidation(false);
+            socket.off("email_event");
+          }
+          else if (data.includes("delivered")){
+            setLoading(false);
+            setNotification(true)
+            setMessage("");
+            setEmail("");
+            setActivate(false);
+            setActivate1(false);
+            setActivate2(false);
+            setLoadingValidation(false);
+            socket.off("email_event");
+          }
         }
       })
 
@@ -230,12 +236,12 @@ const handleSubmit = async e => {
 
               <form className="flex flex-col items-center" onSubmit={handleSubmit} >
                 {validInput ?
-                  <input value={email} onChange={handleInputChange} onBlur={checkValidity} onFocus={handleFocus} type="text" placeholder="email" className="bg-white input input-bordered w-full max-w-xs" />
+                  <input disabled={loading} value={email} onChange={handleInputChange} onBlur={checkValidity} onFocus={handleFocus} type="text" placeholder="email" className="bg-white input input-bordered w-full max-w-xs" />
                 :
-                  <input value={email} onChange={handleInputChange} onBlur={checkValidity} onFocus={handleFocus} type="text" placeholder="email" className="bg-white input input-bordered input-error w-full max-w-xs" />
+                  <input disabled={loading} value={email} onChange={handleInputChange} onBlur={checkValidity} onFocus={handleFocus} type="text" placeholder="email" className="bg-white input input-bordered input-error w-full max-w-xs" />
                 }
 
-                <textarea value={message} onChange={handleTextareaChange} className="bg-white message_textarea textarea textarea-bordered textarea-md mt-2 mb-2 w-full " placeholder="message" autoComplete="off" style={{resize: 'none'}}></textarea>
+                <textarea disabled={loading} value={message} onChange={handleTextareaChange} className="bg-white message_textarea textarea textarea-bordered textarea-md mt-2 mb-2 w-full " placeholder="message" autoComplete="off" style={{resize: 'none'}}></textarea>
                 
 
 

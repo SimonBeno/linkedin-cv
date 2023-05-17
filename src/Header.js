@@ -1,4 +1,5 @@
-import React, {useState, useRef} from "react";
+import React, {useState, useEffect, useRef} from "react";
+import Cookies from 'js-cookie';
 
 // Icons
 import SearchIcon from '@mui/icons-material/Search';
@@ -26,6 +27,22 @@ function Header({handleClick, ProjectsRef, SchoolRef, WorkRef, SkillsRef, LangRe
 	
 	const [open, setOpen] = useState(false);
 	const [aboutOpen, setAboutOpen] = useState(false);
+	const [firstVisit, setFirstVisit] = useState(false);
+
+	const WelcomeMessage = () => {
+
+	    useEffect(() => {
+	        const visitCookie = Cookies.get('firstVisit');
+
+	        if (!visitCookie) {
+	            setOpen(true);
+	            Cookies.set('firstVisit', 'visited', { expires: 3 }); // Cookie will expire after 365 days
+	        }
+	    }, []);
+	};
+
+
+
 
 	return (
 	<div className="header flex items-center">
@@ -41,18 +58,18 @@ function Header({handleClick, ProjectsRef, SchoolRef, WorkRef, SkillsRef, LangRe
 
 		<div className="header__right">
 			<HeaderOption Icon={SchoolIcon} Ref={SchoolRef} handleClick={handleClick} title="Education" /> {/*Education*/}
-			<HeaderOption Icon={HandymanIcon} Ref={WorkRef} handleClick={handleClick} title="Work"/> {/*Work*/}
 			<HeaderOption Icon={HubIcon} Ref={ProjectsRef} handleClick={handleClick} title="Projects" /> {/*Projects*/}
 			<HeaderOption Icon={PsychologyIcon} Ref={SkillsRef} handleClick={handleClick} title="Skills"/> {/*Skills*/}
+			<HeaderOption Icon={HandymanIcon} Ref={WorkRef} handleClick={handleClick} title="Work"/> {/*Work*/}
 			<HeaderOption Icon={LanguageIcon} Ref={LangRef} handleClick={handleClick}  title="Langugages"/> {/*Languages*/}
 			<HeaderOption Icon={VolunteerActivismIcon} Ref={VolRef} handleClick={handleClick} title="Voluteer"/> {/*Volunteer*/}
 			<HeaderOption Icon={RecordVoiceOverIcon} Ref={RefRef} handleClick={handleClick} title="References"/> {/*References*/} 
 			<a href="https://www.linkedin.com/in/simon-beno-056b631ab/" target="_blank"><HeaderOption avatar={avatar} title="Profile"/></a> {/*Profile*/}
 		</div>
 
-		<div className="fixed top-4 right-5">
+		<div className="fixed top-3 right-5">
 			<React.Fragment>
-		      <p className="cursor-pointer" onClick={() => setOpen(true)}>ⓘ</p>
+		      <p className="cursor-pointer text-2xl font-bold" onClick={() => setOpen(true)}>ⓘ</p>
 		      <Modal
 		        aria-labelledby="modal-title"
 		        aria-describedby="modal-desc"
@@ -79,14 +96,18 @@ function Header({handleClick, ProjectsRef, SchoolRef, WorkRef, SkillsRef, LangRe
 		              display: 'none',
 		            }}
 		          />
-		          	<div className="text-justify max-w-md">
-			     		<p className="font-semibold">Welcome and thank you for visiting my website!</p>
+		          	<div className="text-justify max-w-xl ">
+			     		<p className="font-semibold text-xl">Welcome and thank you for visiting my website!</p>
 			     		<br></br>
-			     		<p>This LinkedIn inspired web app was created as a substitute for a classic Resumé. You can access information about my education, work experience, projects I did so far and much more. In the Posts section, you can publicly ask questions that I will later answer, as well as like or comment other posts. The content is checked via OpenAI API for correctness and respectfulness. You can write a personal email to me as well.</p>
+			     		<p>This LinkedIn inspired web app was created as a substitute for a classic Resumé. You can access information about my education, work experience, projects I did so far and much more.</p>
 			     		<br></br>
-			     		<p>Client-side is deployed on Vercel and created using React. Frameworks and libraries I used include TailwindCSS, DaisyUI and MUI.</p>
+			     		<p> In the <span className="font-bold">Posts</span> section, you can publicly ask questions that I will later answer, as well as like or comment other posts. The content is checked via <span className="font-semibold">OpenAI API</span> for correctness and respectfulness.</p>
 			     		<br></br>
-			     		<p>Server runs on Heroku. I used Node.js, Express framework and CORS to build and maintain the server. Communication with OpenAI (posts checker), Firebase (posts database) and Sendgrid (automated mails) takes place here.</p>
+						<p>Shoot me an email! The address is validated by <span className="font-semibold">SendGrid webhook</span> and a <span className="font-semibold">WebSocket</span> and then an automated email is sent to the user.</p>
+			     		<br></br>
+			     		<p>The whole web app was created from scratch without any templates. Client-side is deployed on Vercel and created using React. Frameworks and libraries I used include <span className="font-semibold">TailwindCSS</span>, <span className="font-semibold">DaisyUI</span> and <span className="font-semibold">MUI</span>.</p>
+			     		<br></br>
+			     		<p>Server runs on Heroku. I used <span className="font-semibold">Node.js</span>, Express framework and CORS to build and maintain the server. Communication with <span className="font-semibold">OpenAI</span> (posts checker), <span className="font-semibold">Firebase</span> (posts database) and <span className="font-semibold">Sendgrid</span> (automated mails) takes place here.</p>
 			     		<br></br>
 			     		<p>I provided links to all mentioned organizations and certificates, so feel free to explore every button and link.</p>
 			     		<br></br>
