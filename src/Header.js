@@ -29,19 +29,15 @@ function Header({handleClick, ProjectsRef, SchoolRef, WorkRef, SkillsRef, LangRe
 	const [aboutOpen, setAboutOpen] = useState(false);
 	const [firstVisit, setFirstVisit] = useState(false);
 
-	const WelcomeMessage = () => {
+	useEffect(() => {
+        const visitCookie = Cookies.get('firstVisit');
 
-	    useEffect(() => {
-	        const visitCookie = Cookies.get('firstVisit');
-
-	        if (!visitCookie) {
-	            setOpen(true);
-	            Cookies.set('firstVisit', 'visited', { expires: 3 }); // Cookie will expire after 365 days
-	        }
-	    }, []);
-	};
-
-
+        if (!visitCookie) {
+            setOpen(true);
+            console.log("first visit");
+            Cookies.set('firstVisit', 'visited', { expires: 3 }); // Cookie will expire after 365 days
+        }
+    }, []);
 
 
 	return (
