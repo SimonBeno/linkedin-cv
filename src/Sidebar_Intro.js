@@ -127,8 +127,8 @@ function Sidebar_Intro({open, setOpen, openBg, setOpenBg, chatOpened, setChatOpe
 				      </Modal>
 				    </React.Fragment>
 			</div>
-			<div className="sidebar__intro__bottom ml-2">
-				<div className="sidebar__intro__bio ml-5">
+			<div className="flex">
+				<div className="sidebar__intro__bio ml-7 mr-7 min-w-fit">
 					<h2 className="text-2xl font-bold " >Simon Beno</h2>
 					<h4>aspiring software engineer based in Omaha, Nebraska</h4>
 					<p className="text-sm text-slate-500 mt-2">Omaha, Nebraska, United States</p>
@@ -152,9 +152,9 @@ function Sidebar_Intro({open, setOpen, openBg, setOpenBg, chatOpened, setChatOpe
 						<p className="text-sm text-slate-700 mb-1">Software Tester</p>
 					</div>
 				</div>
-				<div className="sidebar__intro__contact mr-5 ml-20 text-center ">
-					<div>
-		                <Tooltip title="temporarily unavailable" placement="top-end"><span><ContactOpt key="1" title="+1 (402) 720-8932" link="+ 1 (402) 720-8932" icon={CallLogo} website="false"/></span></Tooltip>
+				<div className=" w-full">
+					<div className=" max-w-xs m-auto ">
+		                <Tooltip title="temporarily unavailable" placement="top-start"><span><ContactOpt key="1" title="+1 (402) 720-8932" link="+ 1 (402) 720-8932" icon={CallLogo} website="false"/></span></Tooltip>
 		                <ContactOpt key="2" title="+421 907 644 330" link="+421 907-644-330" icon={WALogo} website="false" />
 		                <ContactOpt key="3" title="simon@sbeno.us" link="simon@sbeno.us" icon={MailLogo} website="false" />
 		                <ContactOpt key="7" title="Šimon Beňo" link="live:.cid.1dc260f24d456f97" icon={SkypeLogo} website="false" />
