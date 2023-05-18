@@ -62,14 +62,14 @@ function Header({handleClick, ProjectsRef, SchoolRef, WorkRef, SkillsRef, LangRe
 			<a href="https://www.linkedin.com/in/simon-beno-056b631ab/" target="_blank"><HeaderOption avatar={avatar} title="Profile"/></a> {/*Profile*/}
 		</div>
 
-		<div>
+		{/*<div>
 			<p className="block sm:hidden">xs</p>
 			<p className="hidden sm:block md:hidden ">sm</p>
 			<p className="hidden md:block lg:hidden ">md</p>
 			<p className="hidden lg:block xl:hidden ">lg</p>
 			<p className="hidden xl:block 2xl:hidden ">xl</p>
 			<p className="hidden 2xl:block ">2xl</p>
-		</div>
+		</div>*/}
 
 		<div className="fixed top-3 right-5">
 			<React.Fragment>
