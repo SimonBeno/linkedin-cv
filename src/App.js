@@ -63,8 +63,8 @@ function handleOpenChat() {
 
         <Header handleClick={handleClick} ProjectsRef={ProjectsRef} SchoolRef={SchoolRef} WorkRef={WorkRef} SkillsRef={SkillsRef} LangRef={LangRef} VolRef={VolRef} RefRef={RefRef}/>
 
-          <div className="app__body">
-            <Sidebar chatOpened={chatOpened} setChatOpened={setChatOpened} chatDisplayed={chatDisplayed} setChatDisplayed={setChatDisplayed} ProjectsRef={ProjectsRef} SchoolRef={SchoolRef} WorkRef={WorkRef} SkillsRef={SkillsRef} LangRef={LangRef} VolRef={VolRef} RefRef={RefRef}/>
+          <div className=" flex flex-col xl:flex-row justify-center mt-5 ">
+            <Sidebar className="" chatOpened={chatOpened} setChatOpened={setChatOpened} chatDisplayed={chatDisplayed} setChatDisplayed={setChatDisplayed} ProjectsRef={ProjectsRef} SchoolRef={SchoolRef} WorkRef={WorkRef} SkillsRef={SkillsRef} LangRef={LangRef} VolRef={VolRef} RefRef={RefRef}/>
             <Feed loaded={loaded} setLoaded={setLoaded}/>
           </div>
 

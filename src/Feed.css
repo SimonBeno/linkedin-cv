@@ -92,22 +92,24 @@
 }
 
 
-/*
-.comment2 {
+
+.feed__input {
     padding-top: 10px;
-    padding-left: 20px;
+    padding-bottom: 10px;
+    padding-left: 7px;
     padding-right: 10px;
     display: flex;
     align-items: center;
     border-radius: 40px;
     min-height: 40px;
     font-weight: 600;
+    background-color: rgb(200, 200, 200);
     margin-top: 10px;
 }
-*/
 
-/*
-.comment2 > .input {
+
+
+.feed__input > .input {
     outline: none;
     border: none;
     background: none;
@@ -119,5 +121,4 @@
     resize: none;
     flex-grow: 1;
 }
-*/
 

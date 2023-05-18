@@ -307,7 +307,7 @@ const [likeDisabled, setLikeDisabled] = useState(false); // disables like btn un
 var limitColor = char_limit - input.length;
 
   return (
-    <div className='post'>
+    <div className="post">
         <div className="post__header">
             <Avatar  />
             <div className="post__info">
@@ -336,7 +336,7 @@ var limitColor = char_limit - input.length;
         {commOpen &&
         <>
         <form onSubmit={onSubmit} >
-            <div className="comment2">
+            <div className="comment2 ">
               <input
                 className="input"
                 id="review-text"

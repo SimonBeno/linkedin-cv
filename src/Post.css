@@ -61,6 +61,10 @@
     flex-grow: 1;
 }
 
+.comment2 > button {
+    display: none;
+}
+
 .SendOutlinedIcon {
     display: flex;
     align-items: center;
@@ -72,10 +76,6 @@
     cursor: pointer;
 }
 
-
-.comment2 > button {
-    display: none;
-}
 
 .post__avatar {
     margin-bottom: 10px;

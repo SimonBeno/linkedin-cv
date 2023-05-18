@@ -127,7 +127,7 @@ function Sidebar_Intro({open, setOpen, openBg, setOpenBg, chatOpened, setChatOpe
 				      </Modal>
 				    </React.Fragment>
 			</div>
-			<div className="flex">
+			<div className="flex flex-col md:flex-row">
 				<div className="sidebar__intro__bio ml-7 mr-7 min-w-fit">
 					<h2 className="text-2xl font-bold " >Simon Beno</h2>
 					<h4>aspiring software engineer based in Omaha, Nebraska</h4>
@@ -152,8 +152,8 @@ function Sidebar_Intro({open, setOpen, openBg, setOpenBg, chatOpened, setChatOpe
 						<p className="text-sm text-slate-700 mb-1">Software Tester</p>
 					</div>
 				</div>
-				<div className=" w-full">
-					<div className=" max-w-xs m-auto ">
+				<div className=" md:w-full ">
+					<div className=" max-w-xs ml-7 mb-4 md:m-auto flex flex-col ">
 		                <Tooltip title="temporarily unavailable" placement="top-start"><span><ContactOpt key="1" title="+1 (402) 720-8932" link="+ 1 (402) 720-8932" icon={CallLogo} website="false"/></span></Tooltip>
 		                <ContactOpt key="2" title="+421 907 644 330" link="+421 907-644-330" icon={WALogo} website="false" />
 		                <ContactOpt key="3" title="simon@sbeno.us" link="simon@sbeno.us" icon={MailLogo} website="false" />

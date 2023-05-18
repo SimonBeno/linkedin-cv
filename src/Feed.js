@@ -200,8 +200,8 @@ const recentItem = (topic) => (
 
 
   return (
-    <div className='feed'>
-      <div className="feed__hashes ">
+    <div className="feed xl:w-20 2xl:w-fit">
+      <div className="feed__hashes">
         <p className="p-2 font-semibold text-base">Talks about</p>
         {recentItem("Engineering")}
         {recentItem("AutoGPT")}
@@ -212,7 +212,7 @@ const recentItem = (topic) => (
       </div>
         <div className="feed__inputContainer">
             <form>
-                <div className="comment2" style={{backgroundColor: "white", border: "1px solid lightgray"}}>
+                <div className="feed__input /*xl:max-w-[70%]*/" style={{backgroundColor: "white", border: "1px solid lightgray"}}>
                   <CreateIcon className=""/>
                   <textarea
                     className="input"

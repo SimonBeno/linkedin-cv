@@ -42,17 +42,16 @@ function Header({handleClick, ProjectsRef, SchoolRef, WorkRef, SkillsRef, LangRe
 
 	return (
 	<div className="header flex items-center">
-		<div className="header__left">
-			<img src={linkedinImage} alt="LinkedIn" />
+		<div className="flex h-9">
+			<img className="object-contain mr-2.5" src={linkedinImage} alt="LinkedIn" />
 
-			<div className="header__search text-center">
+			<div className="flex flex-row items-center rounded-md text-gray-400 bg-[#eef3f8] px-2.5 hidden lg:inline-flex">
 				<SearchIcon />
-				<input type="text" placeholder="Search"/>
+				<input className="outline-none border-none bg-[#eef3f8] w-64 ml-1" type="text" placeholder="Search"/>
 			</div>
 
 		</div>
-
-		<div className="header__right">
+		<div className="flex">
 			<HeaderOption Icon={SchoolIcon} Ref={SchoolRef} handleClick={handleClick} title="Education" /> {/*Education*/}
 			<HeaderOption Icon={HubIcon} Ref={ProjectsRef} handleClick={handleClick} title="Projects" /> {/*Projects*/}
 			<HeaderOption Icon={PsychologyIcon} Ref={SkillsRef} handleClick={handleClick} title="Skills"/> {/*Skills*/}
@@ -61,6 +60,15 @@ function Header({handleClick, ProjectsRef, SchoolRef, WorkRef, SkillsRef, LangRe
 			<HeaderOption Icon={VolunteerActivismIcon} Ref={VolRef} handleClick={handleClick} title="Voluteer"/> {/*Volunteer*/}
 			<HeaderOption Icon={RecordVoiceOverIcon} Ref={RefRef} handleClick={handleClick} title="References"/> {/*References*/} 
 			<a href="https://www.linkedin.com/in/simon-beno-056b631ab/" target="_blank"><HeaderOption avatar={avatar} title="Profile"/></a> {/*Profile*/}
+		</div>
+
+		<div>
+			<p className="block sm:hidden">xs</p>
+			<p className="hidden sm:block md:hidden ">sm</p>
+			<p className="hidden md:block lg:hidden ">md</p>
+			<p className="hidden lg:block xl:hidden ">lg</p>
+			<p className="hidden xl:block 2xl:hidden ">xl</p>
+			<p className="hidden 2xl:block ">2xl</p>
 		</div>
 
 		<div className="fixed top-3 right-5">
@@ -85,11 +93,11 @@ function Header({handleClick, ProjectsRef, SchoolRef, WorkRef, SkillsRef, LangRe
 		          <ModalClose
 		            variant="outlined"
 		            sx={{
-		              top: '20px',
+		              top: '17px',
 		              right: '20px',
 		              borderRadius: '50%',
 		              bgcolor: 'background.body',
-		              display: 'none',
+		              display: 'block',
 		            }}
 		          />
 		          	<div className="text-justify max-w-xl ">

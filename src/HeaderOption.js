@@ -9,7 +9,7 @@ function HeaderOption({avatar, Icon, title, Ref, handleClick}){
 		<div onClick={() => handleClick(Ref)} className="headerOption transition duration-100 hover:text-black">
 			{Icon && <Icon className="headerOption__icon" />} {/* If I pass the object Icon -> render an Icon component */}
 			{avatar && <Avatar className="headerOption__icon" src={avatar} />}
-			<h3 className="headerOption__title">{title}</h3>
+			<h3 className="headerOption__title hidden md:block">{title}</h3>
 		</div>
 	)
 }
