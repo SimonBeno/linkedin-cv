@@ -62,7 +62,26 @@ function Header({handleClick, ProjectsRef, SchoolRef, WorkRef, SkillsRef, LangRe
 			<a href="https://www.linkedin.com/in/simon-beno-056b631ab/" target="_blank"><HeaderOption avatar={avatar} title="Profile"/></a> {/*Profile*/}
 		</div>
 		<div className="inline-flex sm:hidden">
-			<p>debilko</p>
+			<div className="drawer">
+				<input id="my-drawer" type="checkbox" className="drawer-toggle" />
+				<div className="drawer-content">
+				<label htmlFor="my-drawer" className="btn btn-primary drawer-button">...</label>
+				</div> 
+				<div className="drawer-side">
+				<label htmlFor="my-drawer" className="drawer-overlay"></label>
+				<ul className="menu p-4 w-80 bg-base-100 text-base-content">
+				<li><HeaderOption Icon={SchoolIcon} Ref={SchoolRef} handleClick={handleClick} title="Education" /></li>
+				<li><HeaderOption Icon={HubIcon} Ref={ProjectsRef} handleClick={handleClick} title="Projects" /></li>
+				<li><HeaderOption Icon={PsychologyIcon} Ref={SkillsRef} handleClick={handleClick} title="Skills"/></li>
+				<li><HeaderOption Icon={HandymanIcon} Ref={WorkRef} handleClick={handleClick} title="Work"/></li>
+				<li><HeaderOption Icon={LanguageIcon} Ref={LangRef} handleClick={handleClick}  title="Langugages"/></li>
+				<li><HeaderOption Icon={VolunteerActivismIcon} Ref={VolRef} handleClick={handleClick} title="Voluteer"/></li>
+				<li><HeaderOption Icon={RecordVoiceOverIcon} Ref={RefRef} handleClick={handleClick} title="References"/></li>
+				<li><a href="https://www.linkedin.com/in/simon-beno-056b631ab/" target="_blank"><HeaderOption avatar={avatar} title="Profile"/></a></li>
+
+				</ul>
+				</div>
+			</div>
 		</div>
 
 		{/*<div>
