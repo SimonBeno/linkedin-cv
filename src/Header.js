@@ -100,8 +100,8 @@ function Header({handleClick, ProjectsRef, SchoolRef, WorkRef, SkillsRef, LangRe
 		              display: 'block',
 		            }}
 		          />
-		          	<div className="text-justify max-w-xl ">
-			     		<p className="font-semibold text-xl">Welcome and thank you for visiting my website!</p>
+		          	<div className="text-justify text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
+			     		<p className="font-semibold ">Welcome and thank you for visiting my website!</p>
 			     		<br></br>
 			     		<p>This LinkedIn inspired web app was created as a substitute for a classic Resumé. You can access information about my education, work experience, projects I did so far and much more.</p>
 			     		<br></br>
