@@ -51,7 +51,7 @@ function Header({handleClick, ProjectsRef, SchoolRef, WorkRef, SkillsRef, LangRe
 			</div>
 
 		</div>
-		<div className="flex">
+		<div className="flex hidden sm:inline-flex">
 			<HeaderOption Icon={SchoolIcon} Ref={SchoolRef} handleClick={handleClick} title="Education" /> {/*Education*/}
 			<HeaderOption Icon={HubIcon} Ref={ProjectsRef} handleClick={handleClick} title="Projects" /> {/*Projects*/}
 			<HeaderOption Icon={PsychologyIcon} Ref={SkillsRef} handleClick={handleClick} title="Skills"/> {/*Skills*/}
@@ -60,6 +60,9 @@ function Header({handleClick, ProjectsRef, SchoolRef, WorkRef, SkillsRef, LangRe
 			<HeaderOption Icon={VolunteerActivismIcon} Ref={VolRef} handleClick={handleClick} title="Voluteer"/> {/*Volunteer*/}
 			<HeaderOption Icon={RecordVoiceOverIcon} Ref={RefRef} handleClick={handleClick} title="References"/> {/*References*/} 
 			<a href="https://www.linkedin.com/in/simon-beno-056b631ab/" target="_blank"><HeaderOption avatar={avatar} title="Profile"/></a> {/*Profile*/}
+		</div>
+		<div className="inline-flex sm:hidden">
+			<p>debilko</p>
 		</div>
 
 		{/*<div>
@@ -100,8 +103,8 @@ function Header({handleClick, ProjectsRef, SchoolRef, WorkRef, SkillsRef, LangRe
 		              display: 'block',
 		            }}
 		          />
-		          	<div className="text-justify text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
-			     		<p className="font-semibold ">Welcome and thank you for visiting my website!</p>
+		          	<div className="text-justify text-xs sm:text-sm md:text-base lg:text-lg  max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
+			     		<p className="font-semibold xl:text-2xl">Welcome and thank you for visiting my website!</p>
 			     		<br></br>
 			     		<p>This LinkedIn inspired web app was created as a substitute for a classic Resumé. You can access information about my education, work experience, projects I did so far and much more.</p>
 			     		<br></br>
