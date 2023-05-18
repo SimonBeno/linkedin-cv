@@ -62,11 +62,7 @@ function Sidebar({chatOpened, setChatOpened, chatDisplayed, setChatDisplayed, Pr
 	return(
 
 	<div className="sidebar">
-		
-
 		<Sidebar_Intro open={open} setOpen={setOpen} openBg={openBg} setOpenBg={setOpenBg} chatOpened={chatOpened} setChatOpened={setChatOpened} chatDisplayed={chatDisplayed} setChatDisplayed={setChatDisplayed}/>
-
-
 		<div className="sidebar__div mt-2 p-5 pl-8 pr-8" >
 			<h2 className="text-xl font-bold mb-2 mt-2" >About</h2>
 			<div>

@@ -90,13 +90,13 @@ function Sidebar_Intro({open, setOpen, openBg, setOpenBg, chatOpened, setChatOpe
 				              bgcolor: 'background.body',
 				            }}
 				          />
-					     	<Avatar src={background_lg} className="avatar"/>
+					     	<Avatar src={background_lg} className="avatar max-w-[20rem] max-h-[20rem] sm:max-w-[25rem] sm:max-h-[25rem] md:max-w-[35rem] md:max-h-[35rem] lg:max-w-[45rem] lg:max-h-[45rem] "/>
 				        </Sheet>
 				      </Modal>
 				    </React.Fragment>
 
 				<React.Fragment>
-				      <Avatar src={avatar} className="sidebar__avatar cursor-pointer" onClick={() => setOpen(true)}/>
+				      <Avatar src={avatar} className="sidebar__intro__avatar cursor-pointer " onClick={() => setOpen(true)}/>
 				      <Modal
 				        aria-labelledby="modal-title"
 				        aria-describedby="modal-desc"
@@ -122,7 +122,7 @@ function Sidebar_Intro({open, setOpen, openBg, setOpenBg, chatOpened, setChatOpe
 				              bgcolor: 'background.body',
 				            }}
 				          />
-					     	<Avatar src={profilePicBig} className="avatar"/>
+					     	<Avatar src={profilePicBig} className="avatar avatar max-w-[20rem] max-h-[20rem] sm:max-w-[25rem] sm:max-h-[25rem] md:max-w-[35rem] md:max-h-[35rem] lg:max-w-[45rem] lg:max-h-[45rem] "/>
 				        </Sheet>
 				      </Modal>
 				    </React.Fragment>
