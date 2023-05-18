@@ -64,7 +64,7 @@ function Sidebar_Intro({open, setOpen, openBg, setOpenBg, chatOpened, setChatOpe
 		<div className="sidebar__intro">
 			<div className="sidebar__intro__top">
 					<React.Fragment>
-					<img src={background_sm} alt="obrazok" className="sidebar__intro__img cursor-pointer" onClick={() => setOpenBg(true)}/>
+					<img src={background_sm} alt="obrazok" className="sidebar__intro__img cursor-pointer max-h-[140px] md:max-h-[170px] lg:max-h-[200px]" onClick={() => setOpenBg(true)}/>
 				      <Modal
 				        aria-labelledby="modal-title"
 				        aria-describedby="modal-desc"

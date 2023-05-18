@@ -75,6 +75,17 @@
 	width: 160px !important;
 }
 
+@media (max-width: 768px) {
+  .sidebar__intro__avatar {
+    margin-bottom: 10px;
+	margin-left: 22px;
+	border: 4px solid white;
+	object-fit: contain;
+	height: 145px !important;
+	width: 145px !important;
+  	}
+}
+
 @media (max-width: 640px) {
   .sidebar__intro__avatar {
     margin-bottom: 10px;
@@ -83,7 +94,7 @@
 	object-fit: contain;
 	height: 130px !important;
 	width: 130px !important;
-  }
+  	}
 
   .sidebar__intro__img {
 	margin-bottom: -90px;
@@ -92,7 +103,7 @@
 	border-top-left-radius:10px ;
 	border-top-right-radius: 10px ;
 	object-fit: cover;
-}
+	}
 }
 
 .avatar {
