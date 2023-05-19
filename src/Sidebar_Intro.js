@@ -90,7 +90,7 @@ function Sidebar_Intro({open, setOpen, openBg, setOpenBg, chatOpened, setChatOpe
 				              bgcolor: 'background.body',
 				            }}
 				          />
-					     	<Avatar src={background_lg} className="avatar max-w-[20rem] max-h-[20rem] sm:max-w-[25rem] sm:max-h-[25rem] md:max-w-[35rem] md:max-h-[35rem] lg:max-w-[45rem] lg:max-h-[45rem] "/>
+					     	<Avatar src={background_lg} className="avatar max-w-[18rem] max-h-[18rem] sm:max-w-[25rem] sm:max-h-[25rem] md:max-w-[35rem] md:max-h-[35rem] lg:max-w-[45rem] lg:max-h-[45rem] "/>
 				        </Sheet>
 				      </Modal>
 				    </React.Fragment>
@@ -122,7 +122,7 @@ function Sidebar_Intro({open, setOpen, openBg, setOpenBg, chatOpened, setChatOpe
 				              bgcolor: 'background.body',
 				            }}
 				          />
-					     	<Avatar src={profilePicBig} className="avatar avatar max-w-[20rem] max-h-[20rem] sm:max-w-[25rem] sm:max-h-[25rem] md:max-w-[35rem] md:max-h-[35rem] lg:max-w-[45rem] lg:max-h-[45rem] "/>
+					     	<Avatar src={profilePicBig} className="avatar avatar max-w-[18rem] max-h-[18rem] sm:max-w-[25rem] sm:max-h-[25rem] md:max-w-[35rem] md:max-h-[35rem] lg:max-w-[45rem] lg:max-h-[45rem] "/>
 				        </Sheet>
 				      </Modal>
 				    </React.Fragment>

@@ -22,7 +22,7 @@ function Sidebar_education({SchoolRef}){
 
 			<div className="mt-3">  
 				<div className="flex flex-row">
-					<Tooltip title="View website" placement="left-start"><a href="https://pll.harvard.edu/course/cs50-introduction-computer-science?delta=0" target="_blank"><img className="w-[48px] mr-4" src={HarvardLogo} alt="pic" ></img></a></Tooltip>
+					<Tooltip title="View website" placement="left-start"><a href="https://pll.harvard.edu/course/cs50-introduction-computer-science?delta=0" target="_blank"><img className="w-[48px] min-w-[48px] mr-3" src={HarvardLogo} alt="pic" ></img></a></Tooltip>
 					<div className="">
 						<Tooltip title="View certificate" placement="right-start"><p className=" font-semibold hover:underline w-fit"><a href="https://certificates.cs50.io/180bb975-0a6f-4787-8841-1888616af13d.pdf?size=letter" target="_blank">Harvard CS50x</a></p></Tooltip>
 						<p className="text-sm ">"Harvard University's introduction to the intellectual enterprises of computer science and the art of programming"</p>
