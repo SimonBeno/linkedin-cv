@@ -90,7 +90,8 @@ function Sidebar_Intro({open, setOpen, openBg, setOpenBg, chatOpened, setChatOpe
 				              bgcolor: 'background.body',
 				            }}
 				          />
-					     	<Avatar src={background_lg} className="avatar max-w-[18rem] max-h-[18rem] sm:max-w-[25rem] sm:max-h-[25rem] md:max-w-[35rem] md:max-h-[35rem] lg:max-w-[45rem] lg:max-h-[45rem] "/>
+				          	<p className="absolute left-[50%] translate-x-[-50%] top-[50%] translate-y-[-50%] text-gray-500">Photo is loading...</p>
+					     	<Avatar src={background_lg} className="avatar max-w-[18rem] max-h-[18rem] sm:max-w-[25rem] sm:max-h-[25rem] md:max-w-[35rem] md:max-h-[35rem] lg:max-w-[45rem] lg:max-h-[45rem]"/>
 				        </Sheet>
 				      </Modal>
 				    </React.Fragment>
@@ -122,7 +123,8 @@ function Sidebar_Intro({open, setOpen, openBg, setOpenBg, chatOpened, setChatOpe
 				              bgcolor: 'background.body',
 				            }}
 				          />
-					     	<Avatar src={profilePicBig} className="avatar avatar max-w-[16rem] max-h-[16rem] sm:max-w-[25rem] sm:max-h-[25rem] md:max-w-[35rem] md:max-h-[35rem] lg:max-w-[45rem] lg:max-h-[45rem] "/>
+				          	<p className="absolute left-[50%] translate-x-[-50%] top-[50%] translate-y-[-50%] text-gray-500">Photo is loading...</p>
+					     	<Avatar src={profilePicBig} className="avatar max-w-[6rem] max-h-[6rem] sm:max-w-[25rem] sm:max-h-[25rem] md:max-w-[35rem] md:max-h-[35rem] lg:max-w-[45rem] lg:max-h-[45rem]"/>
 				        </Sheet>
 				      </Modal>
 				    </React.Fragment>
